@@ -1,0 +1,22 @@
+.main__layouts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #c4c9cf;
+    border-radius: 2rem;
+    width: auto;
+    height: 20vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .card__title{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+.dark{
+    .main__layouts{
+        background-color: #3f4042;
+        color: white;
+    }
+}

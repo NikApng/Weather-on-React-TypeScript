@@ -1,55 +1,57 @@
 @import "tailwindcss";
+@import "@/styles/header.css";
+@import "@/styles/resetDefaultSettings.css";
+@import '@/styles/Input.css';
+@import '@/styles/main/card.css';
 
 /* Сброс и адекватная модель коробки */
 html, body { margin: 0; padding: 0; }
 *, *::before, *::after { box-sizing: border-box; }
 
 body{
-    background: #454747;
+    background-color: #c8c5c5;
     display: flex;
     flex-direction: column;
-    align-items: center;         /* ок */
-    justify-content: flex-start; /* лучше явно */
-    min-width: 100vh;                 /* было 100vh — исправляем */
-    min-height: 100vh;           /* чтобы тянуться по высоте */
+    align-items: center;
+
+}
+.dark{
+    body{
+        background-color: #131313;
+    }
+}
+
+.buttons--container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 button {
-    border: none;
-    background: aliceblue;
+    background-color: #131313;
+    color: #ffffff;
     border-radius: 15px;
     padding: 5px;
     transition: all 100ms ease;
     cursor: pointer;
-
+    border: 1px transparent dashed;
+    margin: 10px;
     &:hover {
         background: lightblue;
-        transform: scale(1.03);
+        transform: scale(1.01);
+        border: 1px black dashed;
+    }
+}
+.dark{
+    button {
+
+        background: aliceblue;
+        color: black;
+        &:hover {
+            background: lightblue;
+            transform: scale(1.02);
+            border: 1px black dashed;
+        }
     }
 }
 
-/* Блоки по ширине — не vh! */
-header{
-    background: #4a8686;
-    width: 100%;                 /* было 100vh — исправляем */
-    height: 20vh;                /* ок, это про высоту */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Если это контентные секции — убери flex:1, чтобы их не растягивало */
-.asdasdasd,
-.card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;                 /* чтобы тянуться по ширине контейнера */
-    /* flex: 1; — убери, если не хочешь, чтобы они росли по высоте */
-}
-
-.card{
-    background: #399494;
-}

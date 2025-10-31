@@ -1,5 +1,4 @@
-import {useCallback, useState} from 'react'
-import styles from './index.css'
+import {useState} from 'react'
 import React from "react";
 import Header from "@/features/weather/components/Header/Header";
 import Settings from "@/features/weather/components/main/settings";
@@ -10,6 +9,7 @@ function App() {
     const [loading, setLoading] = useState<boolean>(false);
     const [weather, setWeather] = useState(null)
     const [error, setError] = useState(null)
+
 
     async function handleGetWeather(city: string) {
         try {
@@ -25,16 +25,17 @@ function App() {
 
     return (
         <>
+            <Header onSearch={handleGetWeather}/>
+            <Settings
+                onClick={()=> setTheme(theme)}
+            />
 
-            <Header onSearch={handleGetWeather} />
-            <Settings/>
-
-            <main className={'card'}>
+            <main className={'main__layouts'}>
                 {loading && <Loader/>}
                 {error && <p>Ошибка: {String(error)}</p>}
                 {weather && (
-                    <div>
-                        <h1>{weather.city ?? "Город"}</h1>
+                    <div className={'weather__card'}>
+                        <h1 className={'card__title'}>{weather.city ?? "Город"}</h1>
                         <p>{weather.current?.temperature_2m}°C</p>
                         <p>Ветер: {weather.current?.wind_speed_10m} м/с</p>
                     </div>

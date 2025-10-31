@@ -1,0 +1,27 @@
+header{
+    margin: 1rem;
+    background: #bfcaca;
+    width: 100vh;
+    border-radius: 0 0 1rem 1rem;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    .Header__Title{
+        font-size: 4rem;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+}
+.dark {
+    header{
+        background: #313333;
+        .Header__Title{
+            color: #c4c9cf;
+        }
+    }
+}
